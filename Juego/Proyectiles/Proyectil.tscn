@@ -11,7 +11,8 @@ height = 31.1821
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-rotation = 1.5708
+modulate = Color( 0, 0.6875, 2, 1 )
+rotation = 1.57079
 scale = Vector2( 1.4, 1.2 )
 texture = ExtResource( 1 )
 
