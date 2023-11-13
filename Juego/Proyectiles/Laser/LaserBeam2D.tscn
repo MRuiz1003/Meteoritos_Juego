@@ -61,6 +61,9 @@ scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
 [node name="LaserBeam2D" type="RayCast2D"]
+position = Vector2( 0, -1.68182 )
+z_index = 41
+z_as_relative = false
 enabled = true
 cast_to = Vector2( 0, 0 )
 script = ExtResource( 1 )

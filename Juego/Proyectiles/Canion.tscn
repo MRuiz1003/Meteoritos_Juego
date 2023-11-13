@@ -15,6 +15,7 @@ velocidad_proyectil = 1600
 [node name="DisparoSFX" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( -0.315331, 0 )
 stream = ExtResource( 2 )
+volume_db = -10.0
 pitch_scale = 1.8
 bus = "Proyectiles"
 
