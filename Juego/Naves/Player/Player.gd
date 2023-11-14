@@ -4,6 +4,7 @@ extends RigidBody2D
 # Enums
 enum ESTADO {SPAWN, VIVO, INVENCIBLE, MUERTO}
 
+# Variables
 export var potencia_motor: int = 20
 export var potencia_rotacion: int = 280
 export var estela_maxima: int = 150
@@ -44,6 +45,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escudo") and not escudo.get_esta_activado():
 		escudo.activar()
 
+
+## Metodos custom
 func controlador_estados(nuevo_estado: int) -> void:
 	match nuevo_estado:
 		ESTADO.SPAWN:
@@ -63,7 +66,6 @@ func controlador_estados(nuevo_estado: int) -> void:
 			printerr("Error de estado")
 	estado_actual = nuevo_estado
 	
-## Temporal
 func destruir() -> void:
 	controlador_estados(ESTADO.MUERTO)
 
@@ -112,6 +114,8 @@ func recibir_danio(danio: float) -> void:
 		destruir()
 	impacto_sfx.play()
 	
+	
+## Señales
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "spawn":
 		controlador_estados(ESTADO.VIVO)

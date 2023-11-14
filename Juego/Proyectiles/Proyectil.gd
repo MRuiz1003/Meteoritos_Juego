@@ -11,9 +11,11 @@ func crear(pos: Vector2, dir: float, vel: float, danio_p: int) -> void:
 	velocidad = Vector2(vel, 0).rotated(dir)
 	danio = danio_p
 	
+# Metodos
 func _physics_process(delta: float) -> void:
 	position += velocidad * delta
 
+# Metodos Custom
 func daniar(otro_cuerpo: CollisionObject2D) -> void:
 	if otro_cuerpo.has_method("recibir_danio"):
 		otro_cuerpo.recibir_danio(danio)

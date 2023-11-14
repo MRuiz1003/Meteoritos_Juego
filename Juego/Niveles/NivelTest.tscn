@@ -12,7 +12,6 @@ explosion = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 502, 180 )
-potencia_rotacion = 200
 
 [node name="Node" type="Node" parent="."]
 
