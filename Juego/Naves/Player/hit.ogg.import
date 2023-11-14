@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hit.ogg-a64fe9813ca0e6c22af8071656a7521a.oggstr"
+
+[deps]
+
+source_file="res://Juego/Naves/Player/hit.ogg"
+dest_files=[ "res://.import/hit.ogg-a64fe9813ca0e6c22af8071656a7521a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
