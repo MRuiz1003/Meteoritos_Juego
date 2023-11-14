@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Juego/Naves/Player/player_blue.png" type="Texture" id=1]
 [ext_resource path="res://Juego/Naves/Player/MaterialFisico.tres" type="PhysicsMaterial" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Juego/Naves/Player/Estela/Trail2D.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Juego/Naves/Player/Motor/MotorSFX.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Juego/Naves/Player/hit.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Juego/Naves/Player/Escudo/Escudo.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 36.2354
@@ -89,6 +90,9 @@ z_as_relative = false
 points = PoolVector2Array( 0, 0, 60, 0 )
 width = 50.0
 is_emitting = true
+resolution = 5.0
+lifetime = 0.5
+max_points = 100
 target_path = NodePath("..")
 
 [node name="MotorSFX" parent="." instance=ExtResource( 7 )]
@@ -101,6 +105,10 @@ anims/spawn = SubResource( 3 )
 [node name="ImpactoSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 pitch_scale = 0.3
+bus = "SFX"
+
+[node name="Escudo" parent="." instance=ExtResource( 9 )]
+rotation = 1.57079
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Canion"]

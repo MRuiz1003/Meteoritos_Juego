@@ -19,6 +19,7 @@ onready var estela: Estela = $EstelaPuntoInicio/Trail2D
 onready var motor_sfx: Motor = $MotorSFX
 onready var colisionador: CollisionShape2D = $CollisionShape2D
 onready var impacto_sfx: AudioStreamPlayer = $ImpactoSFX
+onready var escudo: Escudo = $Escudo
 
 func _ready() -> void:
 	controlador_estados(estado_actual)
@@ -38,6 +39,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		laser.set_is_casting(true)
 	if event.is_action_released("disparo_secundario"):
 		laser.set_is_casting(false)
+	
+	# Escudo
+	if event.is_action_pressed("escudo") and not escudo.get_esta_activado():
+		escudo.activar()
 
 func controlador_estados(nuevo_estado: int) -> void:
 	match nuevo_estado:
