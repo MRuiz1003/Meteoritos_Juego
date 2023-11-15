@@ -3,6 +3,7 @@ extends Node2D
 
 export var explosion: PackedScene = null
 export var meteorito: PackedScene = preload("res://Juego/Meteoritos/Meteorito.tscn")
+export var explosion_meteorito: PackedScene = preload("res://Juego/Explosiones/ExplosionMeteorito.tscn")
 
 onready var contenedor_proyectiles: Node
 onready var contenedor_meteoritos: Node
@@ -15,6 +16,7 @@ func conectar_seniales() -> void:
 	Eventos.connect("disparo", self, "_on_disparo")
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
 	Eventos.connect("spawn_meteorito", self, "_on_spawn_meteoritos")
+	Eventos.connect("meteorito_destruido", self, "_on_meteorito_destruido")
 	
 func crear_contenedores() -> void:
 	contenedor_proyectiles = Node.new()
@@ -42,4 +44,9 @@ func _on_nave_destruida(posicion: Vector2, num_explosiones: int) -> void:
 		new_explosion.global_position = posicion
 		add_child(new_explosion)
 		yield(get_tree().create_timer(0.6), "timeout")
+		
+func _on_meteorito_destruido(pos: Vector2) -> void:
+	var new_explosion: ExplosionMeteorito = explosion_meteorito.instance()
+	new_explosion.global_position = pos
+	add_child(new_explosion)
 		
