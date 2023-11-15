@@ -1,6 +1,8 @@
 class_name Meteorito
 extends RigidBody2D
 
+onready var impacto_sfx: AudioStreamPlayer2D = $ImpactoMeteoritoSFX
+onready var animacion_meteorito: AnimationPlayer = $AnimationPlayer
 
 export var vel_lineal_base: Vector2 = Vector2(300.0, 300.0)
 export var vel_ang_base: float = 3.0
@@ -20,4 +22,15 @@ func crear(pos: Vector2, dir: Vector2, tamanio: float) -> void:
 	linear_velocity = vel_lineal_base * dir / tamanio
 	angular_velocity = vel_ang_base / tamanio
 	hitpoints = hitpoints_base * tamanio
-	print("hitpoints: ", hitpoints)
+
+func recibir_danio(danio: float) -> void:
+	hitpoints -= danio
+	if hitpoints <= 0:
+		destruir()
+	impacto_sfx.play()
+	animacion_meteorito.play("impacto")
+
+func destruir() -> void:
+	$CollisionShape2D.set_deferred("disabled", true)
+	queue_free()
+	
