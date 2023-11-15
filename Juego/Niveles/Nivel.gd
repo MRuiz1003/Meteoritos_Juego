@@ -24,11 +24,12 @@ func crear_contenedores() -> void:
 	contenedor_meteoritos.name = "ContenedorMeteoritos"
 	add_child(contenedor_meteoritos)
 	
-func _on_spawn_meteoritos( pos_spawn: Vector2, dir_meteorito: Vector2) -> void:
+func _on_spawn_meteoritos( pos_spawn: Vector2, dir_meteorito: Vector2, tamanio: float ) -> void:
 	var new_meteorito: Meteorito = meteorito.instance()
 	new_meteorito.crear(
 		pos_spawn,
-		dir_meteorito
+		dir_meteorito,
+		tamanio
 	)
 	contenedor_meteoritos.add_child(new_meteorito)
 
