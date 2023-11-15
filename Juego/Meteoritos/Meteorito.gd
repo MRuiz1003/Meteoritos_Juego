@@ -7,16 +7,12 @@ export var vel_ang_base: float = 3.0
 export var hitpoints_base: float = 10.0
 
 var hitpoints: float
-
-func _ready() -> void:
-	linear_velocity = vel_lineal_base
-	angular_velocity = vel_ang_base
 	
 func crear(pos: Vector2, dir: Vector2, tamanio: float) -> void:
 	position = pos
 	mass *= tamanio
 	$Sprite.scale = Vector2.ONE * tamanio
-	var radio: int = int($Sprite.texture.get_size().x / 2 * tamanio)
+	var radio:int = int($Sprite.texture.get_size().x / 2.3 * tamanio)
 	var forma_colision: CircleShape2D = CircleShape2D.new()
 	forma_colision.radius = radio
 	$CollisionShape2D.shape = forma_colision
