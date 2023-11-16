@@ -14,7 +14,9 @@ export var growth_time := 0.1
 # It plays appearing and disappearing animations when it's not animating.
 # See `appear()` and `disappear()` for more information.
 var is_casting := false setget set_is_casting
-var radio_danio : float = 4
+export var radio_danio: float = 4.0
+export var energia: float = 4.0
+export var radio_desgaste: float = -1.0
 
 onready var fill := $FillLine2D
 onready var tween := $Tween
@@ -59,10 +61,17 @@ func set_is_casting(cast: bool) -> void:
 # Controls the emission of particles and extends the Line2D to `cast_to` or the ray's 
 # collision point, whichever is closest.
 func cast_beam(delta) -> void:
+	if energia <= 0:
+		set_is_casting(false)
+		return
+	
+	controlar_energia(radio_desgaste * delta)
+	
 	var cast_point := cast_to
+	
 	force_raycast_update()
 	collision_particles.emitting = is_colliding()
-
+	
 	if is_colliding():
 		cast_point = to_local(get_collision_point())
 		collision_particles.global_rotation = get_collision_normal().angle()
@@ -73,6 +82,10 @@ func cast_beam(delta) -> void:
 	fill.points[1] = cast_point
 	beam_particles.position = cast_point * 0.5
 	beam_particles.process_material.emission_box_extents.x = cast_point.length() * 0.5
+	
+func controlar_energia(consumo: float) -> void:
+	energia += consumo
+	print("Energia Laser:", energia)
 
 
 func appear() -> void:

@@ -2,9 +2,9 @@ class_name Nivel
 extends Node2D
 
 export var explosion: PackedScene = null
-export var meteorito: PackedScene = preload("res://Juego/Meteoritos/Meteorito.tscn")
-export var explosion_meteorito: PackedScene = preload("res://Juego/Explosiones/ExplosionMeteorito.tscn")
-export var sector_meteoritos: PackedScene = preload("res://Juego/Meteoritos/SectorMeteoritos.tscn")
+export var meteorito: PackedScene = null
+export var explosion_meteorito: PackedScene = null
+export var sector_meteoritos: PackedScene = null
 export var tiempo_transicion_camara: float = 10.0
 
 onready var contenedor_proyectiles: Node
