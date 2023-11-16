@@ -13,7 +13,6 @@ export var growth_time := 0.1
 # If `true`, the laser is firing.
 # It plays appearing and disappearing animations when it's not animating.
 # See `appear()` and `disappear()` for more information.
-var is_casting := false setget set_is_casting
 export var radio_danio: float = 4.0
 export var energia: float = 4.0
 export var radio_desgaste: float = -1.0
@@ -24,11 +23,13 @@ onready var casting_particles := $CastingParticles2D
 onready var collision_particles := $CollisionParticles2D
 onready var beam_particles := $BeamParticles2D
 onready var laser_sfx: AudioStreamPlayer2D = $LaserSFX
-
 onready var line_width: float = fill.width
 
+var is_casting := false setget set_is_casting
+var energia_original: float
 
 func _ready() -> void:
+	energia_original = energia
 	set_physics_process(false)
 	fill.points[1] = Vector2.ZERO
 
@@ -60,7 +61,7 @@ func set_is_casting(cast: bool) -> void:
 
 # Controls the emission of particles and extends the Line2D to `cast_to` or the ray's 
 # collision point, whichever is closest.
-func cast_beam(delta) -> void:
+func cast_beam(delta: float) -> void:
 	if energia <= 0:
 		set_is_casting(false)
 		return
@@ -85,7 +86,8 @@ func cast_beam(delta) -> void:
 	
 func controlar_energia(consumo: float) -> void:
 	energia += consumo
-	print("Energia Laser:", energia)
+	if energia > energia_original:
+		energia = energia_original
 
 
 func appear() -> void:
