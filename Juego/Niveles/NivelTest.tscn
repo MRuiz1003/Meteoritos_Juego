@@ -4,31 +4,22 @@
 [ext_resource path="res://Juego/Niveles/Nivel.gd" type="Script" id=2]
 [ext_resource path="res://default_env.tres" type="Environment" id=3]
 [ext_resource path="res://Juego/Explosiones/Explosion.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Juego/Meteoritos/MeteoritoSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=5]
 
 [node name="NivelTest" type="Node2D"]
 script = ExtResource( 2 )
 explosion = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 502, 180 )
+position = Vector2( 966.524, 516.38 )
 potencia_rotacion = 200
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
 
-[node name="MeteoritoSpawner" parent="." instance=ExtResource( 6 )]
-position = Vector2( 307.956, 314.305 )
-direccion = Vector2( 2, 1 )
+[node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
-[node name="MeteoritoSpawner2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1311.19, 273.033 )
-direccion = Vector2( 2, -1 )
-
-[node name="MeteoritoSpawner3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 339.704, 698.456 )
-direccion = Vector2( -2, 1 )
-
-[node name="MeteoritoSpawner4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1304.84, 733.379 )
-direccion = Vector2( -2, -1 )
+[node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 5 )]
+position = Vector2( 977.103, 512.579 )
+tipo_peligro = "Meteorito"
+numero_peligros = 12
