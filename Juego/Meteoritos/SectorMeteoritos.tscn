@@ -292,6 +292,7 @@ direccion = Vector2( -1, 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
