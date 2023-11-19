@@ -14,12 +14,16 @@ onready var estela: Estela = $EstelaPuntoInicio/Trail2D
 onready var motor_sfx: Motor = $MotorSFX
 onready var escudo: Escudo = $Escudo setget ,get_escudo
 
-## Metodos
+## Setters y Getters
 func get_laser() -> RayoLaser:
 	return laser
-	
+
 func get_escudo() -> Escudo:
 	return escudo
+
+## Metodos
+func _ready() -> void:
+	DatosJuego.set_player_actual(self)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not esta_input_activo():

@@ -23,6 +23,7 @@ can_sleep = false
 linear_damp = 1.5
 angular_damp = 4.5
 script = ExtResource( 3 )
+explosiones = 3
 
 [node name="Sprite" parent="." index="0"]
 rotation = 1.5708
@@ -50,6 +51,7 @@ position = Vector2( 0, 28 )
 
 [node name="LaserBeam2D" parent="." index="9" instance=ExtResource( 5 )]
 position = Vector2( 40, 0 )
+radio_danio = 15.0
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Canion"]
