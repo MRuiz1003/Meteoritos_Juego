@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/carga.ogg-3c85dab70ff51ee16ca7412db6cfbfd4.oggstr"
+
+[deps]
+
+source_file="res://Juego/Estaciones/carga.ogg"
+dest_files=[ "res://.import/carga.ogg-3c85dab70ff51ee16ca7412db6cfbfd4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
