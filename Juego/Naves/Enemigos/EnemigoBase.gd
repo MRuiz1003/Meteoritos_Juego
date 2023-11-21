@@ -8,7 +8,7 @@ func _ready() -> void:
 	player_objetivo = DatosJuego.get_player_actual()
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	rotar_hacia_player()
 	
 func _on_nave_destruida(nave: NaveBase, _posicion, _explosiones) -> void:

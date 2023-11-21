@@ -37,7 +37,7 @@ numero_peligros = 3
 [node name="ContenedorBaseEnemiga" type="Node" parent="."]
 
 [node name="BaseEnemiga" parent="ContenedorBaseEnemiga" instance=ExtResource( 13 )]
-position = Vector2( -1369.45, -665.248 )
+position = Vector2( -2483.85, -877.38 )
 
 [node name="TriggersInterceptores" type="Node" parent="."]
 
@@ -110,5 +110,5 @@ scale = Vector2( 500, 500 )
 scale = Vector2( 500, 500 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -751.673, -347.85 )
+position = Vector2( -2445.9, 110.355 )
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
