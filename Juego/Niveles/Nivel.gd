@@ -158,7 +158,7 @@ func _on_TweenCamara_tween_completed(object: Object, _key: NodePath) -> void:
 	if object.name == "CamaraPlayer":
 		object.global_position = $Player.global_position
 		
-func _on_base_destruida(pos_partes: Array) -> void:
+func _on_base_destruida(_base, pos_partes: Array) -> void:
 	for posicion in pos_partes:
 		crear_explosion(posicion)
 		yield(get_tree().create_timer(0.5), "timeout")
