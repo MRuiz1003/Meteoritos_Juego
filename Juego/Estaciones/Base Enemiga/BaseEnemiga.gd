@@ -8,7 +8,6 @@ export var intervalo_spawn: float = 0.8
 export (Array, PackedScene) var rutas
 
 onready var impacto_sfx: AudioStreamPlayer2D = $ImpactoSFX
-onready var ruta_enemigo: Path2D = $RutaEnemigo
 onready var timer_spawner: Timer = $TimerSpawnerEnemigos
 
 var esta_destruida: bool = false

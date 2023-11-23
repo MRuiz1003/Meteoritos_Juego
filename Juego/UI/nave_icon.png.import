@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/nave_icon.png-59be4fc6a958dff9641c80bcaecd8d35.stex"
+path="res://.import/nave_icon.png-5786af1584b93c71b772c8445e5dd35f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://nave_icon.png"
-dest_files=[ "res://.import/nave_icon.png-59be4fc6a958dff9641c80bcaecd8d35.stex" ]
+source_file="res://Juego/UI/nave_icon.png"
+dest_files=[ "res://.import/nave_icon.png-5786af1584b93c71b772c8445e5dd35f.stex" ]
 
 [params]
 
