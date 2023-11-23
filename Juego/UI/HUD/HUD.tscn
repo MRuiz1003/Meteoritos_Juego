@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Juego/UI/nave_icon.png" type="Texture" id=1]
 [ext_resource path="res://Juego/UI/HUD/HUD.gd" type="Script" id=2]
 [ext_resource path="res://Juego/UI/HUD/ContenedorInformacion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/UI/HUD/ContenedorInformacionEnergia.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -25,6 +26,10 @@ tracks/0/keys = {
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 15.594, 1061.33, -34.8029 ],
+"_edit_vertical_guides_": [ 18.78, 1893.54 ]
+}
 
 [node name="FadeCanvas" type="CanvasLayer" parent="."]
 
@@ -61,12 +66,13 @@ __meta__ = {
 anims/default = SubResource( 1 )
 anims/fade_in = SubResource( 2 )
 
-[node name="InfoZonaRecarga" parent="." instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 11.0
-margin_top = 6.0
-margin_right = 306.0
-margin_bottom = 132.0
+[node name="InfoZonaRecarga" parent="." groups=[
+"contenedor_info",
+] instance=ExtResource( 3 )]
+margin_left = 18.78
+margin_top = 15.594
+margin_right = 313.78
+margin_bottom = 141.594
 
 [node name="Label" parent="InfoZonaRecarga" index="1"]
 margin_left = -114.0
@@ -76,14 +82,15 @@ margin_bottom = 36.5
 text = "En Zona de
 Recarga"
 
-[node name="InfoMeteoritos" parent="." instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="InfoMeteoritos" parent="." groups=[
+"contenedor_info",
+] instance=ExtResource( 3 )]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 12.7136
-margin_top = -145.714
-margin_right = 276.714
-margin_bottom = -12.7136
+margin_left = 18.78
+margin_top = -164.279
+margin_right = 282.78
+margin_bottom = -31.2789
 auto_ocultar = true
 
 [node name="Label" parent="InfoMeteoritos" index="1"]
@@ -94,14 +101,15 @@ margin_bottom = 55.5
 text = "meteoritos restantes
 5"
 
-[node name="InfoTiempoRestante" parent="." instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
+[node name="InfoTiempoRestante" parent="." groups=[
+"contenedor_info",
+] instance=ExtResource( 3 )]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -273.0
-margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 135.0
+margin_left = -302.525
+margin_top = 15.594
+margin_right = -29.5254
+margin_bottom = 150.594
 auto_ocultar = true
 
 [node name="Label" parent="InfoTiempoRestante" index="1"]
@@ -116,8 +124,52 @@ mm:ss"
 [node name="AutoOcultarTimer" parent="InfoTiempoRestante" index="2"]
 wait_time = 3.0
 
+[node name="InfoLaser" parent="." groups=[
+"contenedor_info",
+] instance=ExtResource( 4 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -387.0
+margin_top = -135.0
+margin_right = -25.0
+margin_bottom = -17.0
+auto_ocultar = true
+
+[node name="Label" parent="InfoLaser" index="1"]
+margin_left = -157.0
+margin_top = 20.0
+margin_right = 157.26
+margin_bottom = 55.0
+text = "Energia laser"
+
+[node name="InfoEscudo" parent="." groups=[
+"contenedor_info",
+] instance=ExtResource( 4 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -387.0
+margin_top = -262.279
+margin_right = -25.0
+margin_bottom = -144.279
+auto_ocultar = true
+
+[node name="Label" parent="InfoEscudo" index="1"]
+margin_left = -170.0
+margin_top = 20.0
+margin_right = 170.0
+margin_bottom = 55.0
+text = "Energia escudo"
+
 [editable path="InfoZonaRecarga"]
 
 [editable path="InfoMeteoritos"]
 
 [editable path="InfoTiempoRestante"]
+
+[editable path="InfoLaser"]
+
+[editable path="InfoEscudo"]

@@ -187,6 +187,8 @@ func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -
 			tiempo_transicion_camara
 		)
 		$RestartTimer.start()
+		get_tree().call_group("contenedor_info", "set_esta_activo", false)
+		get_tree().call_group("contenedor_info", "ocultar")
 	crear_explosion(posicion, num_explosiones, 0.6, Vector2(100.0, 50.0))
 	
 		

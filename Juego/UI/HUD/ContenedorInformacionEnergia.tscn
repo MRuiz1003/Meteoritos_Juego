@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Juego/UI/HUD/ContenedorInformacion.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/UI/HUD/ContenedorInformacionEnergia.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0666667, 0.784314, 0.0235294, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.886275, 0.00392157, 0.00392157, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ContenedorInformacionEnergia" instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 5.0
+margin_right = 283.0
+margin_bottom = 108.0
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" parent="." index="0"]
+autoplay = "ocultar"
+
+[node name="Label" parent="." index="1"]
+anchor_top = 0.0
+anchor_bottom = 0.0
+margin_left = -96.0
+margin_top = 11.0
+margin_right = 96.0
+margin_bottom = 39.0
+text = "Energia"
+
+[node name="ProgressBar" type="ProgressBar" parent="." index="3"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -120.0
+margin_top = -43.0
+margin_right = 120.0
+margin_bottom = -20.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 100.0
+rounded = true
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}

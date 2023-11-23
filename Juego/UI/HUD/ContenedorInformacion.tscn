@@ -4,7 +4,7 @@
 [ext_resource path="res://Juego/UI/HUD/fuente_hud.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Juego/UI/HUD/ContenedorInformacion.gd" type="Script" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "mostrar"
 length = 0.001
 tracks/0/type = "value"
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "mostrar_suavizado"
 length = 1.5
 tracks/0/type = "value"
@@ -64,7 +64,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "ocultar_suavizado"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -91,13 +91,14 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=5]
 size = 30
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [node name="ContenedorInformacion" type="NinePatchRect"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 5.0
 margin_top = 4.5
 margin_right = 155.0
@@ -113,10 +114,11 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/mostrar = SubResource( 2 )
-anims/mostrar_suavizado = SubResource( 4 )
+autoplay = "ocultar"
+anims/mostrar = SubResource( 1 )
+anims/mostrar_suavizado = SubResource( 2 )
 anims/ocultar = SubResource( 3 )
-anims/ocultar_suavizado = SubResource( 5 )
+anims/ocultar_suavizado = SubResource( 4 )
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -127,7 +129,7 @@ margin_left = -76.0
 margin_top = -19.5
 margin_right = 76.0
 margin_bottom = 19.5
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 text = "texto"
 align = 1
 valign = 1
