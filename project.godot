@@ -34,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Juego/UI/HUD/ContenedorInformacion.gd"
 }, {
-"base": "NinePatchRect",
+"base": "ContenedorInformacion",
 "class": "ContenedorInformacionEnergia",
 "language": "GDScript",
 "path": "res://Juego/UI/HUD/ContenedorInformacionEnergia.gd"
@@ -239,6 +239,11 @@ recarga_escudo={
 recarga_laser={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+minimapa={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777218,"unicode":0,"echo":false,"script":null)
  ]
 }
 

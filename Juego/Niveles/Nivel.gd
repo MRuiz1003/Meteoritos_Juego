@@ -142,25 +142,19 @@ func crear_posicion_aleatoria(rango_horizontal: float, rango_vertical: float) ->
 	return Vector2(rand_x, rand_y)
 	
 func destruir_nivel() -> void:
+	var posicion_explosion = player.global_position
 	crear_explosion(
-		player.global_position,
-		1,
+		posicion_explosion,
+		8.0,
+		3,
 		1.5,
 		Vector2(300.0, 200.0)
 	)
 	player.destruir()
 	
-func _on_spawn_meteoritos( pos_spawn: Vector2, dir_meteorito: Vector2, tamanio: float ) -> void:
-	var new_meteorito: Meteorito = meteorito.instance()
-	new_meteorito.crear(
-		pos_spawn,
-		dir_meteorito,
-		tamanio
-	)
-	contenedor_meteoritos.add_child(new_meteorito)
-
 func crear_explosion(
 		posicion: Vector2,
+		escala: float = 1.0,
 		numero: int = 1,
 		intervalo: float = 0.0,
 		rangos_aleatorios: Vector2 = Vector2(0.0, 0.0)
@@ -171,8 +165,19 @@ func crear_explosion(
 					rangos_aleatorios.x,
 					rangos_aleatorios.y
 				)
+				new_explosion.scale = Vector2(escala, escala)
 				add_child(new_explosion)
 				yield(get_tree().create_timer(intervalo), "timeout")
+	
+func _on_spawn_meteoritos( pos_spawn: Vector2, dir_meteorito: Vector2, tamanio: float ) -> void:
+	var new_meteorito: Meteorito = meteorito.instance()
+	new_meteorito.crear(
+		pos_spawn,
+		dir_meteorito,
+		tamanio
+	)
+	contenedor_meteoritos.add_child(new_meteorito)
+
 				
 ## Señales
 func _on_disparo(proyectil: Proyectil) -> void:
@@ -187,9 +192,7 @@ func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -
 			tiempo_transicion_camara
 		)
 		$RestartTimer.start()
-		get_tree().call_group("contenedor_info", "set_esta_activo", false)
-		get_tree().call_group("contenedor_info", "ocultar")
-	crear_explosion(posicion, num_explosiones, 0.6, Vector2(100.0, 50.0))
+	crear_explosion(posicion, 1.0, num_explosiones, 0.6, Vector2(100.0, 50.0))
 	
 		
 func _on_meteorito_destruido(pos: Vector2) -> void:
@@ -212,9 +215,14 @@ func _on_TweenCamara_tween_completed(object: Object, _key: NodePath) -> void:
 		
 func _on_base_destruida(_base, pos_partes: Array) -> void:
 	for posicion in pos_partes:
-		crear_explosion(posicion)
+		crear_explosion(
+		posicion,
+		3.0,
+		1,
+		0.5,
+		Vector2(300.0, 200.0)
+		)
 		yield(get_tree().create_timer(0.5), "timeout")
-		
 	numero_bases_enemigas -= 1
 	if numero_bases_enemigas == 0:
 		crear_rele()

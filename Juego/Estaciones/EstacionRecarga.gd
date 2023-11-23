@@ -10,6 +10,7 @@ onready var vacio_sfx: AudioStreamPlayer = $VacioSFX
 var nave_player: Player = null
 var player_en_zona: bool = false
 
+##Metodos
 func _unhandled_input(event: InputEvent) -> void:
 	if not puede_recargar(event):
 		return
@@ -39,9 +40,7 @@ func controlar_energia() -> void:
 	if energia <= 0:
 		vacio_sfx.play()
 	
-	print("Energia Estacion: ", energia)
-		
-	
+## Señales
 func _on_AreaColision_body_entered(body: Node) -> void:
 	if body.has_method("destruir"):
 		body.destruir()
