@@ -6,6 +6,7 @@ export var tiempo_visible: float = 5.0
 var escala_grilla: Vector2
 var player: Player = null
 var esta_visible: bool = true setget set_esta_visible
+var esta_activo: bool = true setget set_esta_activo
 
 onready var zona_renderizado: TextureRect = $CuadroMiniMapa/ContenedorIconos/RenderizadoMiniMapa
 onready var icono_player: Sprite = $CuadroMiniMapa/ContenedorIconos/RenderizadoMiniMapa/IconoPlayer
@@ -16,6 +17,10 @@ onready var icono_rele: Sprite = $CuadroMiniMapa/ContenedorIconos/RenderizadoMin
 onready var items_mini_mapa: Dictionary = {}
 onready var timer_visibilidad: Timer = $TimerVisibilidad
 onready var tween_visibilidad: Tween = $TweenVisibilidad
+onready var animaciones: AnimationPlayer = $AnimationPlayer
+
+func set_esta_activo(valor: bool) -> void:
+	esta_activo = valor
 
 func set_esta_visible(hacer_visible: bool) -> void:
 	if hacer_visible:
@@ -55,6 +60,11 @@ func conectar_seniales() -> void:
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
 	Eventos.connect("minimapa_objeto_creado", self, "obtener_objetos_minimapa")
 	Eventos.connect("minimapa_objeto_eliminado", self, "quitar_icono")
+	
+func ocultar() -> void:
+	if esta_activo:
+		animaciones.stop()
+	animaciones.play("ocultar")
 	
 func obtener_objetos_minimapa() -> void:
 	var objetos_en_ventana: Array = get_tree().get_nodes_in_group("minimapa")

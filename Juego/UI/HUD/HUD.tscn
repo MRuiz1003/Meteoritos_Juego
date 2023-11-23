@@ -165,7 +165,9 @@ margin_right = 170.0
 margin_bottom = 55.0
 text = "Energia escudo"
 
-[node name="MiniMapa" parent="." instance=ExtResource( 5 )]
+[node name="MiniMapa" parent="." groups=[
+"contenedor_info",
+] instance=ExtResource( 5 )]
 margin_top = -190.0
 margin_bottom = -27.9999
 
