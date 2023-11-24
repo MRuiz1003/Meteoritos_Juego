@@ -19,7 +19,7 @@ position = Vector2( -0.315331, 0 )
 stream = ExtResource( 2 )
 volume_db = -10.0
 pitch_scale = 1.8
-bus = "Proyectiles"
+bus = "SFX"
 
 [node name="TimerEnfriamiento" type="Timer" parent="."]
 [connection signal="timeout" from="TimerEnfriamiento" to="." method="_on_TimerEnfriamiento_timeout"]

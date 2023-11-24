@@ -60,6 +60,9 @@ position = Vector2( 0, -28 )
 [node name="PuntoDerecho" parent="Canion" index="1"]
 position = Vector2( 0, 28 )
 
+[node name="DisparoSFX" parent="Canion" index="2"]
+bus = "Master"
+
 [node name="Escudo" parent="." index="4" instance=ExtResource( 9 )]
 
 [node name="EstelaPuntoInicio" parent="." index="5" instance=ExtResource( 2 )]

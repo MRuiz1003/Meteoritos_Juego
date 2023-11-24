@@ -21,7 +21,7 @@ shape = SubResource( 1 )
 modulate = Color( 0.0313726, 0.282353, 0.478431, 0.316384 )
 position = Vector2( 0, -1.68182 )
 scale = Vector2( 40.8971, 40.8971 )
-z_index = 40
+z_index = -1
 z_as_relative = false
 texture = ExtResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
