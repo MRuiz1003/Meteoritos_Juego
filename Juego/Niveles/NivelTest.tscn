@@ -11,7 +11,7 @@
 [ext_resource path="res://Juego/Meteoritos/Meteorito.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Juego/Explosiones/ExplosionMeteorito.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Juego/Niveles/Fondos/fondo_azul.png" type="Texture" id=12]
+[ext_resource path="res://Juego/Niveles/Fondos/FondoEstrellas.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Juego/Estaciones/Base Enemiga/BaseEnemiga.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Juego/Estaciones/Relé/ReleMasa.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Juego/UI/HUD/HUD.tscn" type="PackedScene" id=15]
@@ -65,65 +65,15 @@ script = ExtResource( 7 )
 
 [node name="TweenCamara" type="Tween" parent="."]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_ignore_camera_zoom = true
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 500, 500 )
-motion_mirroring = Vector2( 256, 256 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-texture = ExtResource( 12 )
-
-[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite6" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite7" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite8" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite9" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite10" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite11" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite12" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite13" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite14" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
-[node name="Sprite15" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 500, 500 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -2445.9, 110.355 )
 
 [node name="RestartTimer" type="Timer" parent="."]
 
 [node name="ActualizadorTimer" type="Timer" parent="."]
+
+[node name="StarFieldBackground" parent="." instance=ExtResource( 12 )]
+color_fondo = Color( 0.0235294, 0.0117647, 0.141176, 1 )
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
 [connection signal="timeout" from="RestartTimer" to="." method="_on_RestartTimer_timeout"]
 [connection signal="timeout" from="ActualizadorTimer" to="." method="_on_ActualizadorTimer_timeout"]
