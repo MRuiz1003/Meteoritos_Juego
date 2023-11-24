@@ -47,7 +47,7 @@ position = Vector2( -2483.85, -877.38 )
 [node name="TriggersInterceptores" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersInterceptores" instance=ExtResource( 5 )]
-position = Vector2( -767.133, -949.927 )
+position = Vector2( -2449.03, 582.469 )
 tipo_peligro = "Enemigo"
 numero_peligros = 2
 

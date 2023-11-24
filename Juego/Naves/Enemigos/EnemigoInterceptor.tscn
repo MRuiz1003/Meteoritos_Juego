@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Juego/Naves/NaveBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Naves/Enemigos/spawn_interceptor.png" type="Texture" id=2]
@@ -140,6 +140,24 @@ radius = 810.396
 [sub_resource type="CircleShape2D" id=5]
 radius = 474.275
 
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.854902, 0.682353, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.823529, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+
 [node name="EnemigoInterceptor" groups=[
 "minimapa",
 ] instance=ExtResource( 1 )]
@@ -148,6 +166,8 @@ collision_mask = 2147483663
 contacts_reported = 2
 contact_monitor = true
 script = ExtResource( 4 )
+hitpoints = 20.0
+explosiones = 2
 
 [node name="Sprite" parent="." index="0"]
 rotation = -1.5708
@@ -160,8 +180,8 @@ shape = SubResource( 1 )
 [node name="Canion" parent="." index="2"]
 proyectil = ExtResource( 5 )
 cadencia_disparo = 1.2
-velocidad_proyectil = 1200
-danio_proyectil = 1
+velocidad_proyectil = 1000
+danio_proyectil = 2
 
 [node name="PuntoIzquierdo" parent="Canion" index="0"]
 position = Vector2( 0, -32 )
@@ -191,6 +211,14 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion" index="0"]
 shape = SubResource( 5 )
+
+[node name="BarraSalud" parent="." index="8"]
+margin_left = -110.0
+margin_top = 68.7401
+margin_right = 30.0
+margin_bottom = 82.7401
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="AreaDisparo" to="." method="_on_AreaDisparo_body_entered"]
 [connection signal="body_exited" from="AreaDisparo" to="." method="_on_AreaDisparo_body_exited"]
