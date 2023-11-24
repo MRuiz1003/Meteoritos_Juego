@@ -31,7 +31,7 @@ func _ready() -> void:
 	crear_contenedores()
 	numero_bases_enemigas = contabilizar_bases_enemigas()
 	player = DatosJuego.get_player_actual()
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+#	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	MusicaJuego.set_streams(musica_nivel, musica_combate)
 	MusicaJuego.play_musica_nivel()
 	Eventos.emit_signal("nivel_iniciado")

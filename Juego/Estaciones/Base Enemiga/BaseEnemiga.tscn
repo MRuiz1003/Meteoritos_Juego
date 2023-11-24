@@ -166,7 +166,7 @@ border_blend = true
 ]]
 scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 6 )
-hitpoints = 40.0
+hitpoints = 45.0
 orbital = ExtResource( 9 )
 rutas = [ ExtResource( 12 ), ExtResource( 11 ) ]
 

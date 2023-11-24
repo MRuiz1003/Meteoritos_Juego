@@ -135,7 +135,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 810.396
+radius = 714.553
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 474.275
@@ -166,7 +166,6 @@ collision_mask = 2147483663
 contacts_reported = 2
 contact_monitor = true
 script = ExtResource( 4 )
-hitpoints = 20.0
 explosiones = 2
 
 [node name="Sprite" parent="." index="0"]

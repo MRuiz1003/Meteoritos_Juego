@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Estaciones/EstacionRecarga.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Estaciones/Base Enemiga/BaseEnemiga.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=4]
+
+[node name="Nivel3" instance=ExtResource( 1 )]
+tiempo_limite = 90
+prox_nivel = "res://Juego/Niveles/ListaNiveles/Nivel4.tscn"
+
+[node name="EstacionRecarga" parent="ContenedorEstaciones" index="0" instance=ExtResource( 2 )]
+position = Vector2( 1940.94, -76.2814 )
+
+[node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0" instance=ExtResource( 3 )]
+position = Vector2( 3696, 1304 )
+numero_orbitales = 4
+intervalo_spawn = 2.0
+
+[node name="BaseEnemiga2" parent="ContenedorBasesEnemigas" index="1" instance=ExtResource( 3 )]
+position = Vector2( 4575.87, -1703.35 )
+numero_orbitales = 4
+intervalo_spawn = 2.0
+
+[node name="SectorDePeligro" parent="TriggersInterceptores" index="0" instance=ExtResource( 4 )]
+position = Vector2( 959.157, -50.7295 )
+tipo_peligro = "Enemigo"
+numero_peligros = 2
+
+[node name="StarFieldBackground" parent="." index="10"]
+color_fondo = Color( 0.235294, 0.0117647, 0.243137, 1 )
