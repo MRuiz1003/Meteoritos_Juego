@@ -1,9 +1,49 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Estaciones/Base Enemiga/BaseEnemiga.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Estaciones/EstacionRecarga.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=4]
 
 [node name="Nivel5" instance=ExtResource( 1 )]
+tiempo_limite = 100
 prox_nivel = "res://Juego/Niveles/ListaNiveles/Nivel6.tscn"
+
+[node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 4 )]
+position = Vector2( 1404, 44 )
+tipo_peligro = "Meteorito"
+numero_peligros = 6
+
+[node name="SectorDePeligro2" parent="TriggersLluviaMeteoritos" index="1" instance=ExtResource( 4 )]
+position = Vector2( -1212, 1036 )
+tipo_peligro = "Meteorito"
+numero_peligros = 4
+
+[node name="EstacionRecarga" parent="ContenedorEstaciones" index="0" instance=ExtResource( 3 )]
+position = Vector2( -592, -492 )
+
+[node name="EstacionRecarga2" parent="ContenedorEstaciones" index="1" instance=ExtResource( 3 )]
+position = Vector2( 3008, 1208 )
+
+[node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0" instance=ExtResource( 2 )]
+position = Vector2( 3104, -836 )
+numero_orbitales = 8
+intervalo_spawn = 1.0
+
+[node name="BaseEnemiga2" parent="ContenedorBasesEnemigas" index="1" instance=ExtResource( 2 )]
+position = Vector2( -2452, 156 )
+numero_orbitales = 8
+intervalo_spawn = 1.0
+
+[node name="BaseEnemiga3" parent="ContenedorBasesEnemigas" index="2" instance=ExtResource( 2 )]
+position = Vector2( 824, 1764 )
+numero_orbitales = 8
+intervalo_spawn = 1.0
+
+[node name="SectorDePeligro" parent="TriggersInterceptores" index="0" instance=ExtResource( 4 )]
+position = Vector2( -1608, -224 )
+tipo_peligro = "Enemigo"
+numero_peligros = 3
 
 [node name="StarFieldBackground" parent="." index="10"]
 color_fondo = Color( 0.0117647, 0.129412, 0.141176, 1 )

@@ -24,6 +24,7 @@ onready var actualizador_timer: Timer = $ActualizadorTimer
 var meteoritos_totales: int = 0
 var player: Player = null
 var numero_bases_enemigas: int = 0
+var puede_crear_rele: bool = true
 
 ## Metodos
 func _ready() -> void:
@@ -124,8 +125,9 @@ func crear_rele() -> void:
 		margen.x *= -1
 	if pos_aleatoria.y < 0:
 		margen.y *= -1
-	new_rele_masa.global_position = player.global_position + (margen + pos_aleatoria)
-	add_child(new_rele_masa)
+	if puede_crear_rele:
+		new_rele_masa.global_position = player.global_position + (margen + pos_aleatoria)
+		add_child(new_rele_masa)
 
 func contabilizar_bases_enemigas() -> int:
 	return $ContenedorBasesEnemigas.get_child_count()
@@ -201,6 +203,8 @@ func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -
 			tiempo_transicion_camara
 		)
 		$RestartTimer.start()
+		puede_crear_rele = false
+		
 	crear_explosion(posicion, 1.0, num_explosiones, 0.6, Vector2(100.0, 50.0))
 	
 		

@@ -6,7 +6,7 @@
 [ext_resource path="res://Juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=4]
 
 [node name="Nivel3" instance=ExtResource( 1 )]
-tiempo_limite = 90
+tiempo_limite = 60
 prox_nivel = "res://Juego/Niveles/ListaNiveles/Nivel4.tscn"
 
 [node name="EstacionRecarga" parent="ContenedorEstaciones" index="0" instance=ExtResource( 2 )]

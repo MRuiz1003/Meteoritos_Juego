@@ -6,7 +6,7 @@
 [ext_resource path="res://Juego/Estaciones/EstacionRecarga.tscn" type="PackedScene" id=4]
 
 [node name="Nivel4" instance=ExtResource( 1 )]
-tiempo_limite = 105
+tiempo_limite = 100
 prox_nivel = "res://Juego/Niveles/ListaNiveles/Nivel5.tscn"
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 2 )]

@@ -4,7 +4,7 @@
 [ext_resource path="res://Juego/Estaciones/Base Enemiga/BaseEnemiga.tscn" type="PackedScene" id=2]
 
 [node name="Nivel1" instance=ExtResource( 1 )]
-tiempo_limite = 40
+tiempo_limite = 20
 prox_nivel = "res://Juego/Niveles/ListaNiveles/Nivel2.tscn"
 
 [node name="BaseEnemiga" parent="ContenedorBasesEnemigas" index="0" instance=ExtResource( 2 )]

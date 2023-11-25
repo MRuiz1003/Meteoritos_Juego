@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Juego/UI/Menus/MenuPrincipal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/UI/Menus/Boton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/UI/Menus/MenuFinal.gd" type="Script" id=3]
+
+[node name="MenuFinal" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Label" parent="." index="1"]
+margin_left = -722.5
+margin_top = 50.0
+margin_right = 722.5
+margin_bottom = 323.0
+text = "¡¡Felicidades!!
+Ganaste el juego"
+align = 1
+
+[node name="BotonJugar" parent="." index="2"]
+margin_top = -190.0
+margin_bottom = 10.0
+text = "reiniciar"
+
+[node name="BotonSalir" parent="." index="3"]
+margin_top = -290.0
+margin_bottom = -89.9999
+
+[node name="BotonMenu" parent="." index="4" instance=ExtResource( 2 )]
+margin_left = -200.0
+margin_top = 30.0
+margin_right = 200.0
+margin_bottom = 230.0
+text = "menu"
+[connection signal="pressed" from="BotonMenu" to="." method="_on_BotonMenu_pressed"]

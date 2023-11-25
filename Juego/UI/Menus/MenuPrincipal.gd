@@ -1,3 +1,4 @@
+class_name MenuPrincipal
 extends Node
 
 export (String, FILE, "*.tscn") var nivel_inicial = ""

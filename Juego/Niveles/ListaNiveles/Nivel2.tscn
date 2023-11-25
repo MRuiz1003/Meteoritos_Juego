@@ -6,7 +6,7 @@
 [ext_resource path="res://Juego/Peligros/SectorDePeligro.tscn" type="PackedScene" id=4]
 
 [node name="Nivel2" instance=ExtResource( 1 )]
-tiempo_limite = 60
+tiempo_limite = 40
 prox_nivel = "res://Juego/Niveles/ListaNiveles/Nivel3.tscn"
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 4 )]
