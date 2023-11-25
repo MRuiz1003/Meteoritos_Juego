@@ -20,22 +20,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BotonJugar" parent="." instance=ExtResource( 1 )]
-margin_left = -400.0
-margin_top = -190.0
-margin_right = 400.0
-margin_bottom = 110.0
-text = "Jugar"
-
-[node name="BotonSalir" parent="." instance=ExtResource( 1 )]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = -200.0
-margin_top = -330.0
-margin_right = 200.0
-margin_bottom = -131.0
-text = "Salir"
-
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -48,5 +32,17 @@ text = "Meteoritos"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BotonJugar" parent="." instance=ExtResource( 1 )]
+text = "Jugar"
+
+[node name="BotonSalir" parent="." instance=ExtResource( 1 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -320.0
+margin_right = 200.0
+margin_bottom = -120.0
+text = "Salir"
 [connection signal="pressed" from="BotonJugar" to="." method="_on_BotonJugar_pressed"]
 [connection signal="pressed" from="BotonSalir" to="." method="_on_BotonSalir_pressed"]

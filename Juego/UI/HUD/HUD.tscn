@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Juego/UI/nave_icon.png" type="Texture" id=1]
 [ext_resource path="res://Juego/UI/HUD/HUD.gd" type="Script" id=2]
 [ext_resource path="res://Juego/UI/HUD/ContenedorInformacion.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Juego/UI/HUD/ContenedorInformacionEnergia.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Juego/UI/Minimapa/MiniMapa.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Juego/UI/Menus/MenuPausa.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -86,21 +87,25 @@ Recarga"
 [node name="InfoMeteoritos" parent="." groups=[
 "contenedor_info",
 ] instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 1 )
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 19.0
-margin_top = -164.0
-margin_right = 340.0
+margin_top = -166.0
+margin_right = 387.0
 margin_bottom = -31.0
 auto_ocultar = true
 
 [node name="Label" parent="InfoMeteoritos" index="1"]
-margin_left = -123.0
-margin_top = -55.5
-margin_right = 123.0
-margin_bottom = 55.5
-text = "meteoritos restantes
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+text = "meteoritos
+restantes
 5"
 
 [node name="InfoTiempoRestante" parent="." groups=[
@@ -171,6 +176,9 @@ text = "Energia escudo"
 ] instance=ExtResource( 5 )]
 margin_top = -190.0
 margin_bottom = -27.9999
+
+[node name="MenuPausa" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [editable path="InfoZonaRecarga"]
 

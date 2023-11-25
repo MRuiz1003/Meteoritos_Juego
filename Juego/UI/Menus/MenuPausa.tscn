@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Juego/UI/HUD/fuente_hud.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Juego/UI/Menus/Boton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/UI/Menus/MenuPausa.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="MenuPausa" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.466667 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.0
+margin_top = -211.0
+margin_right = 450.0
+margin_bottom = 211.0
+custom_constants/separation = 60
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BotonContinuar" parent="VBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 900.0
+margin_bottom = 116.0
+custom_fonts/font = SubResource( 1 )
+text = "Continuar"
+
+[node name="BotonMenu" parent="VBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 176.0
+margin_right = 900.0
+margin_bottom = 269.0
+text = "Menu"
+
+[node name="BotonSalir" parent="VBoxContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 329.0
+margin_right = 900.0
+margin_bottom = 422.0
+text = "Salir"
+[connection signal="pressed" from="VBoxContainer/BotonContinuar" to="." method="_on_BotonContinuar_pressed"]
+[connection signal="pressed" from="VBoxContainer/BotonMenu" to="." method="_on_BotonMenu_pressed"]
+[connection signal="pressed" from="VBoxContainer/BotonSalir" to="." method="_on_BotonSalir_pressed"]
